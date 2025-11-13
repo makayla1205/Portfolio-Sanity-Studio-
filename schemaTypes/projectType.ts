@@ -17,25 +17,37 @@ export const projectType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'linkGithub',
+      name: 'GithubLink',
       type: 'url',
     }),
     defineField({
-      name: 'linkDemo',
+      name: 'DemoLink',
       type: 'url',
     }),
     defineField({
-      name: 'image',
+      name: 'CoverImage',
       type: 'image',
-    }),
-    defineField({
-      name: 'tools',
-      type: 'string',
     }),
     defineField({
       name: 'description',
       type: 'array',
       of: [{type: 'block'}],
+    }),
+    defineField({
+      name: 'tools',
+      title: 'Tools & Technologies',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'Tools'}]
+        }
+      ]
+    }),
+    defineField({
+      name: 'status',
+      type: 'reference',
+      to: [{type: 'Status'}],
     }),
   ],
 })
